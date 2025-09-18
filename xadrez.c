@@ -4,6 +4,8 @@ int main(){
     int peca;
     int casa;
     int torre = 1; //Declarei pra poder usar o While no case 2
+    int movimentocompleto = 1;
+
     
     //Apresentando o jogo, explicando as regras 
     //Também fiz um menu pro usuario poder selecionar a peça e quantas casas vai andar
@@ -11,9 +13,11 @@ int main(){
     printf("Escolha qual peça você deseja mover, sendo:\n");
     printf("1 para Rainha (anda ATÉ 8 casas pra esquerda\n");
     printf("2 para Torre (anda ATÉ 5 casas pra direita)\n");
-    printf("3 para Bispo (anda ATÉ 5 casas na diagonal:\n");
+    printf("3 para Bispo (anda ATÉ 5 casas na diagonal)\n");
+    printf("4 para Cavalo (anda SEMPRE 3 casas em L)\n");
     scanf("%d", &peca);
     printf("Digite quantas casas vc deseja andar:\n");
+    printf("No caso do Cavalo, selecione somente '3' :\n");
     scanf("%d", &casa);
 
 
@@ -66,10 +70,49 @@ int main(){
 
             }
         break;
-        
+
+//=============Case 4 pro cavalo
+        case 4:
+            if (casa != 3){ // Aqui achei melhor testar se a entrada for invalida primeiro pra resolver esse problema mais facil
+            printf("Entrada inváilida, o cavalo pode andar somente 3 casas\n"
+            );}
+
+            else{
+                int direcao; // Pra me desafiar um pouco adicionei pro usuario andar pra cima ou pra baixo
+                printf("Escolha a direção que vc quer andar, digitando '1' para cima ou '2' para baixo\n");
+                scanf("%d", &direcao);
 
 
-return 0;
+                
+                if (direcao == 1){
+                    while (movimentocompleto--){
+                        for(int i = 0; i <2; i++){
+                            printf("Cima\n"); // Imprime "Cima" duas vezes
+                        }
+                        printf("Direita\n"); // Imprime "Direita" uma vez
+                    }
+                }             
+                else if (direcao == 2){  //Usei a mesma lógica, só mudei o printf
+                    while(movimentocompleto--){
+                        for(int i = 0; i < 2; i++){
+                            printf("Baixo\n"); // Imprime "Baixo" duas vezes
+                        }
+                        printf("Esquerda\n"); // Imprime "Esquerda" duas vezes
+                    }
+                }
+                else{
+                    printf("Entrada de Direção inválida !\n");
+                }
+
+
+            }
+        break;
+
+    
+
+
+
+    
 
 
 
@@ -83,7 +126,7 @@ return 0;
 
 
     }
-
+return 0;
 
 
 }
